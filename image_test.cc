@@ -1,3 +1,5 @@
+// 230201057
+
 // ------------------------------
 // Written by Mustafa Ozuysal
 // Contact <mustafaozuysal@iyte.edu.tr> for comments and bug reports
@@ -38,95 +40,60 @@ using ceng391::Image;
 using ceng391::short_to_image;
 using ceng391::Keypoint;
 using ceng391::Descriptor;
+using ceng391::Match;
 using std::vector;
 using std::cout;
 using std::endl;
 
 int main(int argc, char** argv)
 {
-     //    Image* gray = Image::new_gray(128, 128);
-     //    cout << "(" << gray->w() << "x" << gray->h() << ") channels: "
-     //         << gray->n_ch() << " step: " << gray->step() << endl;
-     //    gray->set_zero();
-     //    gray->set_rect(32, 32, 64, 64, 255);
-     //    gray->write_pnm("/tmp/test_image_gray");
-     //    delete gray;
-
-     //    Image* rgb = Image::new_rgb(128, 128);
-     //    cout << "(" << rgb->w() << "x" << rgb->h() << ") channels: "
-     //         << rgb->n_ch() << " step: " << rgb->step() << endl;
-     //    rgb->set_zero();
-     //    rgb->set_rect(32, 32, 64, 64, 255, 0, 255);
-     //    rgb->write_pnm("/tmp/test_image_rgb");
-     //    delete rgb;
-
-     //    Image img(4, 4, 1);
-     //    img.read_pnm("/tmp/test_image_gray.pgm");
-     //    img.to_rgb();
-     //    img.write_pnm("/tmp/test_image_gray2rgb");
-
-     //    img.read_pnm("/tmp/test_image_rgb.ppm");
-     //    img.to_grayscale();
-     //    img.write_pnm("/tmp/test_image_rgb2gray");
-
-     //    img.read_pnm("../small_city.pgm");
-     //    Image rotated(img.w()*2, img.h()*2, 1);
-     //    double theta = 45.0 * 3.1415926 / 180;
-     //    img.rotate_centered(&rotated, theta);
-     //    rotated.write_pnm("/tmp/small_city_crotated_45");
-
-     //    float threshold = 1000.0f;
-     //    float k = 0.06f;
-     //    float sigma = 2.5f;
-     //    vector<Keypoint> keys = img.harris_corners(threshold, k, sigma);
-     //    cout << "Detected " << keys.size()
-     //         << " keypoints on small_city.pgm" << endl;
-     //    Image *key_image = make_keypoint_image(&img, &keys);
-     //    key_image->write_pnm("/tmp/keys");
-
-     //    short *dx = img.deriv_x();
-     //    short *dy = img.deriv_y();
-     //    cout << "Derivatives computed" << endl;
-
-     //    Image *dx_img = short_to_image(dx, img.w(), img.h());
-     //    Image *dy_img = short_to_image(dy, img.w(), img.h());
-     //    dx_img->write_pnm("/tmp/dx");
-     //    dy_img->write_pnm("/tmp/dy");
-
-     //    float sigma_x = 5.5f;
-     //    float sigma_y = 5.5f;
-     //    img.smooth(sigma_x, sigma_y);
-     //    img.write_pnm("/tmp/smoothed_xy");
-
-     //    delete key_image;
-     //    delete [] dx;
-     //    delete [] dy;
-     //    delete dx_img;
-     //    delete dy_img;
-     
-     // cout<<ceng391::DESCRIPTOR_OFFSETS[255][2]<<endl;
-     
      Image img(4, 4, 1);
      img.read_pnm("../small_city.pgm");
+
+     Image img_rotated(img.w() * 2,img.h() * 2,1);
+     img_rotated.read_pnm("../small_city.pgm");
+     double theta = 0 * 3.1415926 / 180;
+     img.rotate_centered(&img_rotated, theta);
 
      float threshold = 1000.0f;
      float k = 0.06f;
      float sigma = 2.5f;
+     
+     // Keypoint calculation for img
      vector<Keypoint> keys = img.harris_corners(threshold, k, sigma);
      cout << "Detected " << keys.size()
           << " keypoints on small_city.pgm" << endl;
      Image *key_image = make_keypoint_image(&img, &keys);
      key_image->write_pnm("/tmp/keys");
+     //end
+      
+     // Keypoint calculation for img_rotated
+     vector<Keypoint> keys_rotated = img_rotated.harris_corners(threshold, k, sigma);
+     cout << "Detected " << keys_rotated.size()
+          << " rotated "<<theta<<" keypoints on small_city.pgm" << endl;
+     Image *key_image_rotated = make_keypoint_image(&img_rotated, &keys_rotated);
+     key_image_rotated->write_pnm("/tmp/keys_rotated");
+     //end
 
+     // Calculating descriptor for img
      vector<Descriptor> descriptorVec =  img.compute_brief(keys);
-     cout<<descriptorVec.size()<<endl;
-     // cout<<(int)descriptorVec[0].desc[0]<<endl;
 
-     vector<Descriptor> a;
-     Image::match_brief(descriptorVec, descriptorVec);
+     // Calculating descriptor for img_rotated
+     vector<Descriptor> descriptorVec2 =  img.compute_brief(keys_rotated);
+
+     // Matching
+     vector<Match> matches =  Image::match_brief(descriptorVec, descriptorVec2);
+
+     // Printing matches to the console
+     for(int i = 0; i < matches.size(); i++) {
+          cout<<"Match "<<i<<"\n\tkey_id0:"<<matches[i].key_id0
+          <<"\n\tkey_id1:"<<matches[i].key_id1
+          <<"\n\tdistance:"<<matches[i].distance<<endl;
+     }
 
      delete key_image;
-
+     delete key_image_rotated;
+     
      return EXIT_SUCCESS;
 }
 
