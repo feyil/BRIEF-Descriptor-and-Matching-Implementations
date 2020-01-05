@@ -82,6 +82,9 @@ public:
 
         std::vector<Keypoint> harris_corners(float threshold, float k,
                                              float sigma);
+
+        std::vector<Descriptor> compute_brief(const std::vector<Keypoint> keypoints);
+        bool check_keypoint(const Keypoint keypoint, int width, int height);
 private:
         int m_width;
         int m_height;

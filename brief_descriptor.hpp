@@ -3,6 +3,8 @@
 
 namespace ceng391 {
 
+const int DESCRIPTOR_SIZE = 256;
+
 struct Descriptor {
         int key_id;
         unsigned char desc[32];

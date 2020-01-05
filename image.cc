@@ -474,4 +474,69 @@ std::vector<Keypoint> Image::harris_corners(float threshold, float k,
         return keys;
 }
 
+std::vector<Descriptor> Image::compute_brief(std::vector<Keypoint> keypoints) 
+{
+        std::vector<Descriptor> descriptors;
+        
+        if(keypoints.size() == 0) {
+                return descriptors;
+        }
+
+        Image* copy_img = new_copy(this);
+        
+        float sigma = 2.5f;
+        copy_img->smooth(sigma, sigma);
+
+        for(int i = 0; i < keypoints.size(); i++) {
+
+                if(check_keypoint(keypoints[i], copy_img->w(), copy_img->h())) {
+
+                        Descriptor descriptor;
+                        descriptor.key_id = i;
+
+                        for(int j = 0; j < DESCRIPTOR_SIZE; j++) {
+
+                                int* offset = DESCRIPTOR_OFFSETS[j];
+
+                                int x0 = keypoints[i].x + offset[0];
+                                int y0 = keypoints[i].y + offset[1];
+
+                                int x1 = keypoints[i].x + offset[2];
+                                int y1 = keypoints[i].y + offset[3];
+                                
+                                uchar I0 = copy_img->data(y0)[x0];
+                                uchar I1 = copy_img->data(y1)[x1];
+                                
+
+                                int descriptor_index = j / 8;
+                                if(I0 > I1) {
+                                        descriptor.desc[descriptor_index] += 1;
+                                }
+                                // shift
+                                descriptor.desc[descriptor_index] << 1;
+
+                        }
+
+                        descriptors.push_back(descriptor);
+                }
+
+        }
+        cerr<<descriptors.size()<<endl;
+        delete copy_img;
+
+        cerr<<"BRIEF Computed"<<endl;
+}
+
+bool Image::check_keypoint(Keypoint keypoint, int width, int height) {
+        int offset = 8;
+
+        float x = keypoint.x;
+        float y = keypoint.y;
+
+        bool x_check = (x + offset) < width && (x - offset) >= 0;
+        bool y_check = (y + offset) < height && (y - offset) >= 0;   
+
+        return x_check && y_check;
+}
+
 }
