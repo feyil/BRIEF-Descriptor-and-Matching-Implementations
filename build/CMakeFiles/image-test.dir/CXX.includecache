@@ -1,0 +1,62 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/image.cc
+image.hpp
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/image.hpp
+iostream
+-
+fstream
+-
+cmath
+-
+cstring
+-
+ostream
+-
+memory
+-
+
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/image.hpp
+string
+-
+vector
+-
+util.hpp
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/util.hpp
+keypoint.hpp
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/keypoint.hpp
+
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/image_test.cc
+cstdlib
+-
+iostream
+-
+image.hpp
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/image.hpp
+
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/keypoint.hpp
+
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/util.cc
+util.hpp
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/util.hpp
+cstdio
+-
+cmath
+-
+memory
+-
+image.hpp
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/image.hpp
+
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/util.hpp
+vector
+-
+keypoint.hpp
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/keypoint.hpp
+
