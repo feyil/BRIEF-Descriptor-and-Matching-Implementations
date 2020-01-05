@@ -474,7 +474,7 @@ std::vector<Keypoint> Image::harris_corners(float threshold, float k,
         return keys;
 }
 
-std::vector<Descriptor> Image::compute_brief(std::vector<Keypoint> keypoints) 
+std::vector<Descriptor> Image::compute_brief(const std::vector<Keypoint> &keypoints) 
 {
         std::vector<Descriptor> descriptors;
         
@@ -492,7 +492,7 @@ std::vector<Descriptor> Image::compute_brief(std::vector<Keypoint> keypoints)
                 if(check_keypoint(keypoints[i], copy_img->w(), copy_img->h())) {
 
                         Descriptor descriptor;
-                        descriptor.key_id = 40;
+                        descriptor.key_id = i;
 
                         for(int j = 0; j < DESCRIPTOR_SIZE; j++) {
 
@@ -520,13 +520,13 @@ std::vector<Descriptor> Image::compute_brief(std::vector<Keypoint> keypoints)
                 }
 
         }
-        cerr<<descriptors.size()<<endl;
-        delete copy_img;
 
-        cerr<<"BRIEF Computed"<<endl;
+        cerr<<"BRIEF Descriptors Computed"<<endl;
+
+        delete copy_img;
 }
 
-bool Image::check_keypoint(Keypoint keypoint, int width, int height) {
+bool Image::check_keypoint(const Keypoint &keypoint, int width, int height) {
         int offset = 8;
 
         float x = keypoint.x;
@@ -538,24 +538,39 @@ bool Image::check_keypoint(Keypoint keypoint, int width, int height) {
         return x_check && y_check;
 }
 
-std::vector<Match> Image::match_brief(std::vector<Descriptor> desVec1, std::vector<Descriptor> desVec2) {
+std::vector<Match> Image::match_brief(const std::vector<Descriptor> &desVec1, const std::vector<Descriptor> &desVec2) {
 
         std::vector<Match> matches;
-        
+
         for(int i = 0; i < desVec1.size(); i++) {
+                int min_distance = 256;
+                Descriptor min_match_i;
+                Descriptor min_match_j;
+
                 Descriptor des1 = desVec1[i];
 
                 for(int j = 0; j < desVec2.size(); j++) {
                         Descriptor des2 = desVec2[j];
-                       
-                        // hamming for di and dj
-                        return matches;
-                }
-        }
 
+                        int distance = hamming_distance(des1.desc, des2.desc);
+
+                        if(distance < min_distance) {
+                                min_distance = distance;
+                                min_match_i = des1;
+                                min_match_j = des2;
+                        }    
+                }
+               
+                Match match;
+                match.key_id0 = min_match_i.key_id;
+                match.key_id1 = min_match_j.key_id;
+                match.distance = min_distance;
+
+                matches.push_back(match);
+        }
+      
         cerr<<"Matching Completed"<<endl;
         return matches;
 }
-
 
 }

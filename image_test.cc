@@ -120,9 +120,10 @@ int main(int argc, char** argv)
 
      vector<Descriptor> descriptorVec =  img.compute_brief(keys);
      cout<<descriptorVec.size()<<endl;
-     cout<<(int)descriptorVec[0].desc[0]<<endl;
+     // cout<<(int)descriptorVec[0].desc[0]<<endl;
 
-     // Image::match_brief(desc, desc);
+     vector<Descriptor> a;
+     Image::match_brief(descriptorVec, descriptorVec);
 
      delete key_image;
 

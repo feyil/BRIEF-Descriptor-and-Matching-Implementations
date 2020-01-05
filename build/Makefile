@@ -162,6 +162,33 @@ archive/fast:
 	$(MAKE) -f CMakeFiles/archive.dir/build.make CMakeFiles/archive.dir/build
 .PHONY : archive/fast
 
+brief_descriptor.o: brief_descriptor.cc.o
+
+.PHONY : brief_descriptor.o
+
+# target to build an object file
+brief_descriptor.cc.o:
+	$(MAKE) -f CMakeFiles/image-test.dir/build.make CMakeFiles/image-test.dir/brief_descriptor.cc.o
+.PHONY : brief_descriptor.cc.o
+
+brief_descriptor.i: brief_descriptor.cc.i
+
+.PHONY : brief_descriptor.i
+
+# target to preprocess a source file
+brief_descriptor.cc.i:
+	$(MAKE) -f CMakeFiles/image-test.dir/build.make CMakeFiles/image-test.dir/brief_descriptor.cc.i
+.PHONY : brief_descriptor.cc.i
+
+brief_descriptor.s: brief_descriptor.cc.s
+
+.PHONY : brief_descriptor.s
+
+# target to generate assembly for a file
+brief_descriptor.cc.s:
+	$(MAKE) -f CMakeFiles/image-test.dir/build.make CMakeFiles/image-test.dir/brief_descriptor.cc.s
+.PHONY : brief_descriptor.cc.s
+
 image.o: image.cc.o
 
 .PHONY : image.o
@@ -255,6 +282,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit"
 	@echo "... archive"
+	@echo "... brief_descriptor.o"
+	@echo "... brief_descriptor.i"
+	@echo "... brief_descriptor.s"
 	@echo "... image.o"
 	@echo "... image.i"
 	@echo "... image.s"

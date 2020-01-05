@@ -48,7 +48,7 @@ public:
         static Image* new_gray(int width, int height);
         static Image* new_rgb(int width, int height);
         static Image* new_copy(Image *img);
-        static std::vector<Match> match_brief(const std::vector<Descriptor> desVec1, const std::vector<Descriptor> desVec2);
+        static std::vector<Match> match_brief(const std::vector<Descriptor> &desVec1, const std::vector<Descriptor> &desVec2);
 
         int w   () const { return m_width; }
         int h   () const { return m_height; }
@@ -84,8 +84,9 @@ public:
         std::vector<Keypoint> harris_corners(float threshold, float k,
                                              float sigma);
 
-        std::vector<Descriptor> compute_brief(const std::vector<Keypoint> keypoints);
-        bool check_keypoint(const Keypoint keypoint, int width, int height);
+        std::vector<Descriptor> compute_brief(const std::vector<Keypoint> &keypoints);
+        bool check_keypoint(const Keypoint &keypoint, int width, int height);
+
 private:
         int m_width;
         int m_height;

@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/brief_descriptor.cc
+iostream
+-
+util.hpp
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/util.hpp
+
 /home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/brief_descriptor.hpp
 util.hpp
 /home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/util.hpp

@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(SRCS image.cc util.cc)
+set(SRCS image.cc util.cc brief_descriptor.cc)
 set(HDRS image.hpp
   keypoint.hpp
   brief_descriptor.hpp

@@ -66,12 +66,12 @@ CMAKE_BINARY_DIR = "/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/build"
 CMakeFiles/test-valgrind.dir/all: CMakeFiles/image-test.dir/all
 	$(MAKE) -f CMakeFiles/test-valgrind.dir/build.make CMakeFiles/test-valgrind.dir/depend
 	$(MAKE) -f CMakeFiles/test-valgrind.dir/build.make CMakeFiles/test-valgrind.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/build/CMakeFiles" --progress-num=7 "Built target test-valgrind"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/build/CMakeFiles" --progress-num=8 "Built target test-valgrind"
 .PHONY : CMakeFiles/test-valgrind.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test-valgrind.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/build/CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test-valgrind.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/build/CMakeFiles" 0
 .PHONY : CMakeFiles/test-valgrind.dir/rule
@@ -98,7 +98,7 @@ clean: CMakeFiles/test-valgrind.dir/clean
 CMakeFiles/image-test.dir/all:
 	$(MAKE) -f CMakeFiles/image-test.dir/build.make CMakeFiles/image-test.dir/depend
 	$(MAKE) -f CMakeFiles/image-test.dir/build.make CMakeFiles/image-test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/build/CMakeFiles" --progress-num=3,4,5,6 "Built target image-test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/build/CMakeFiles" --progress-num=3,4,5,6,7 "Built target image-test"
 .PHONY : CMakeFiles/image-test.dir/all
 
 # Include target in all.
@@ -108,7 +108,7 @@ all: CMakeFiles/image-test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/image-test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/build/CMakeFiles" 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/build/CMakeFiles" 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/image-test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/build/CMakeFiles" 0
 .PHONY : CMakeFiles/image-test.dir/rule

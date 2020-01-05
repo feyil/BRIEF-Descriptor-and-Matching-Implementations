@@ -11,6 +11,11 @@
 },
 {
   "directory": "/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/build",
+  "command": "/usr/bin/c++    -g   -std=gnu++11 -o CMakeFiles/image-test.dir/brief_descriptor.cc.o -c \"/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/brief_descriptor.cc\"",
+  "file": "/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/brief_descriptor.cc"
+},
+{
+  "directory": "/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/build",
   "command": "/usr/bin/c++    -g   -std=gnu++11 -o CMakeFiles/image-test.dir/image_test.cc.o -c \"/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/image_test.cc\"",
   "file": "/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/image_test.cc"
 }

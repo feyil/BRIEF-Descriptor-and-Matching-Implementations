@@ -3,6 +3,7 @@
 
 #include "util.hpp"
 
+
 namespace ceng391 {
 
 const int DESCRIPTOR_SIZE = 256;
@@ -17,6 +18,8 @@ struct Match {
     int key_id1;
     int distance;
 };
+
+int hamming_distance(const uchar* desc1, const uchar* desc2);
 
 static int DESCRIPTOR_OFFSETS[256][4]
 {
