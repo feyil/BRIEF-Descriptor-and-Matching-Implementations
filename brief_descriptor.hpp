@@ -1,13 +1,21 @@
 #ifndef BRIEF_DESCRIPTOR_HPP
 #define BRIEF_DESCRIPTOR_HPP
 
+#include "util.hpp"
+
 namespace ceng391 {
 
 const int DESCRIPTOR_SIZE = 256;
 
 struct Descriptor {
         int key_id;
-        unsigned char desc[32];
+        uchar desc[32] = {};
+};
+
+struct Match {
+    int key_id0;
+    int key_id1;
+    int distance;
 };
 
 static int DESCRIPTOR_OFFSETS[256][4]

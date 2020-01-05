@@ -48,6 +48,7 @@ public:
         static Image* new_gray(int width, int height);
         static Image* new_rgb(int width, int height);
         static Image* new_copy(Image *img);
+        static std::vector<Match> match_brief(const std::vector<Descriptor> desVec1, const std::vector<Descriptor> desVec2);
 
         int w   () const { return m_width; }
         int h   () const { return m_height; }

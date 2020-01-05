@@ -37,6 +37,7 @@
 using ceng391::Image;
 using ceng391::short_to_image;
 using ceng391::Keypoint;
+using ceng391::Descriptor;
 using std::vector;
 using std::cout;
 using std::endl;
@@ -117,8 +118,11 @@ int main(int argc, char** argv)
      Image *key_image = make_keypoint_image(&img, &keys);
      key_image->write_pnm("/tmp/keys");
 
-     img.compute_brief(keys);
+     vector<Descriptor> descriptorVec =  img.compute_brief(keys);
+     cout<<descriptorVec.size()<<endl;
+     cout<<(int)descriptorVec[0].desc[0]<<endl;
 
+     // Image::match_brief(desc, desc);
 
      delete key_image;
 

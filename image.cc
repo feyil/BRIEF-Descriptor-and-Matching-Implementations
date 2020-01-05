@@ -492,7 +492,7 @@ std::vector<Descriptor> Image::compute_brief(std::vector<Keypoint> keypoints)
                 if(check_keypoint(keypoints[i], copy_img->w(), copy_img->h())) {
 
                         Descriptor descriptor;
-                        descriptor.key_id = i;
+                        descriptor.key_id = 40;
 
                         for(int j = 0; j < DESCRIPTOR_SIZE; j++) {
 
@@ -507,14 +507,13 @@ std::vector<Descriptor> Image::compute_brief(std::vector<Keypoint> keypoints)
                                 uchar I0 = copy_img->data(y0)[x0];
                                 uchar I1 = copy_img->data(y1)[x1];
                                 
-
                                 int descriptor_index = j / 8;
+                      
                                 if(I0 > I1) {
                                         descriptor.desc[descriptor_index] += 1;
                                 }
                                 // shift
-                                descriptor.desc[descriptor_index] << 1;
-
+                                descriptor.desc[descriptor_index] = descriptor.desc[descriptor_index] << 1;
                         }
 
                         descriptors.push_back(descriptor);
@@ -538,5 +537,25 @@ bool Image::check_keypoint(Keypoint keypoint, int width, int height) {
 
         return x_check && y_check;
 }
+
+std::vector<Match> Image::match_brief(std::vector<Descriptor> desVec1, std::vector<Descriptor> desVec2) {
+
+        std::vector<Match> matches;
+        
+        for(int i = 0; i < desVec1.size(); i++) {
+                Descriptor des1 = desVec1[i];
+
+                for(int j = 0; j < desVec2.size(); j++) {
+                        Descriptor des2 = desVec2[j];
+                       
+                        // hamming for di and dj
+                        return matches;
+                }
+        }
+
+        cerr<<"Matching Completed"<<endl;
+        return matches;
+}
+
 
 }
