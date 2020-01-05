@@ -32,6 +32,7 @@
 #include <iostream>
 
 #include "image.hpp"
+#include "brief_descriptor.hpp"
 
 using ceng391::Image;
 using ceng391::short_to_image;
@@ -101,6 +102,10 @@ int main(int argc, char** argv)
         delete [] dy;
         delete dx_img;
         delete dy_img;
+     
+
+
+        cout<<ceng391::DESCRIPTOR_OFFSETS[255][2]<<endl;
 
         return EXIT_SUCCESS;
 }

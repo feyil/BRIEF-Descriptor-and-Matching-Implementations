@@ -36,6 +36,7 @@
 
 #include "util.hpp"
 #include "keypoint.hpp"
+#include "brief_descriptor.hpp"
 
 namespace ceng391 {
 

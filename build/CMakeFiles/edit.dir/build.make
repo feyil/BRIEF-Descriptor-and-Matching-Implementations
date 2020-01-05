@@ -55,7 +55,7 @@ include CMakeFiles/edit.dir/progress.make
 
 CMakeFiles/edit:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir="/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Open source and header files using Emacs server"
-	cd "/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T" && emacsclient -n image.cc util.cc image.hpp keypoint.hpp util.hpp image_test.cc CMakeLists.txt
+	cd "/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T" && emacsclient -n image.cc util.cc image.hpp keypoint.hpp brief_descriptor.hpp util.hpp image_test.cc CMakeLists.txt
 
 edit: CMakeFiles/edit
 edit: CMakeFiles/edit.dir/build.make

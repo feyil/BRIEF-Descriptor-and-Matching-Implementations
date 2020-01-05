@@ -13,6 +13,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(SRCS image.cc util.cc)
 set(HDRS image.hpp
   keypoint.hpp
+  brief_descriptor.hpp
   util.hpp
 )
 

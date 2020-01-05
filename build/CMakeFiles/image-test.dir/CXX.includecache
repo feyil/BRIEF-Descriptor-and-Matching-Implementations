@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/brief_descriptor.hpp
+
 /home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/image.cc
 image.hpp
 /home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/image.hpp
@@ -31,6 +33,8 @@ util.hpp
 /home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/util.hpp
 keypoint.hpp
 /home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/keypoint.hpp
+brief_descriptor.hpp
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/brief_descriptor.hpp
 
 /home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/image_test.cc
 cstdlib
@@ -39,6 +43,8 @@ iostream
 -
 image.hpp
 /home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/image.hpp
+brief_descriptor.hpp
+/home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/brief_descriptor.hpp
 
 /home/feyil/Desktop/CENG391 Fall 2019/ceng391_05T/keypoint.hpp
 
