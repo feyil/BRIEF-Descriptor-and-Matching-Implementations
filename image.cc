@@ -534,10 +534,10 @@ bool Image::check_keypoint(const Keypoint &keypoint, int width, int height) {
         float x = keypoint.x;
         float y = keypoint.y;
 
-        bool x_check = (x + offset) < width && (x - offset) >= 0;
-        bool y_check = (y + offset) < height && (y - offset) >= 0;   
+        bool x_check = (x + offset) < width || (x - offset) >= 0;
+        bool y_check = (y + offset) < height || (y - offset) >= 0;   
 
-        return x_check && y_check;
+        return x_check || y_check;
 }
 
 std::vector<Match> Image::match_brief(const std::vector<Descriptor> &desVec1, const std::vector<Descriptor> &desVec2) {

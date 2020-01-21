@@ -52,7 +52,7 @@ int main(int argc, char** argv)
 
      Image img_rotated(img.w() * 2,img.h() * 2,1);
      img_rotated.read_pnm("../small_city.pgm");
-     double theta = 0 * 3.1415926 / 180;
+     double theta = 90 * 3.1415926 / 180;
      img.rotate_centered(&img_rotated, theta);
 
      float threshold = 1000.0f;
@@ -91,6 +91,16 @@ int main(int argc, char** argv)
           <<"\n\tdistance:"<<matches[i].distance<<endl;
      }
 
+     // unsigned char desc[32] = {};
+     // desc[0] = 255;
+     // desc[1] = 255;
+     // desc[31] = 255;
+
+     // unsigned char desc2[32] = {};
+     // desc2[0] = 0;
+     // int result = ceng391::hamming_distance(desc, desc2);
+
+     // cout<<result<<endl;
      delete key_image;
      delete key_image_rotated;
      
