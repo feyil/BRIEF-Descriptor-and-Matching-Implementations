@@ -106,4 +106,4 @@ int main(int argc, char** argv)
 
 ```
 
-![alt text](https://github.com/feyil/Harris-Corner-Detection-Implementation/blob/master/screenshots/brief.png "brief")
+![alt text](https://github.com/feyil/BRIEF-Descriptor-and-Matching-Implementations/blob/master/screenshots/brief.png "brief")
