@@ -1,4 +1,4 @@
-# Harris Corner Detection Algorithm Implementation
+# BRIEF Descriptor and Matching Algorithm Implementations
 
 ### Introduction
 
